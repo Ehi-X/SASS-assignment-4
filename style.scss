@@ -1,0 +1,234 @@
+// Import Google Fonts and Font Awesome
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css');
+
+// Variables
+$primary-color: #f3f3f3; // Off-white for the navbar and body
+$text-color: #000000; // Black text for general use
+$hero-bg: #f3f3f3; // Background color for the hero section
+$sea-green: #2e8b57; // Sea green color for buttons and heading
+$off-black: #2d2d2d; // Off-black color for "Be Prepared" text
+$font-family: 'Poppins', sans-serif;
+
+// Breakpoints
+$tablet: 768px;
+$desktop: 1024px;
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $primary-color; // Off-white background
+}
+
+// Navbar
+.navbar {
+  background-color: $primary-color; // Off-white background
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $text-color;
+
+  &__logo {
+    font-size: 24px;
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  &__bars {
+    display: none; // Hidden by default
+    color: $text-color;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  &__menu {
+    display: flex;
+    gap: 15px;
+
+    &--links {
+      color: $text-color;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: darken($text-color, 20%);
+      }
+    }
+  }
+
+  // Adjust Sign-Up button within navbar
+  #button {
+    background-color: $sea-green;
+    color: $primary-color;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($sea-green, 10%);
+    }
+  }
+}
+
+// Hero Section
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $hero-bg;
+  padding: 20px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+    color: $text-color;
+
+    // Left Section
+    &--left {
+      flex: 1;
+
+      h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        color: $sea-green;
+      }
+
+      h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: $off-black;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: $text-color;
+      }
+
+      .hero__container--btn {
+        padding: 10px 20px;
+        background-color: $sea-green;
+        color: $primary-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($sea-green, 10%);
+        }
+
+        a {
+          color: $primary-color;
+          text-decoration: none;
+        }
+      }
+    }
+
+    // Right Section
+    &--right {
+      flex: 1;
+      text-align: center;
+
+      .hero__container--img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+// Responsive Styles
+// For tablets
+@media (max-width: $tablet) {
+  .navbar {
+    padding: 15px;
+
+    &__bars {
+      display: block; // Show bars on tablet and smaller screens
+    }
+
+    &__menu {
+      display: none; // Hide menu on mobile by default
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: $primary-color;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+
+      &--links {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  // Toggle menu visibility when bars icon is clicked
+  .navbar.active .navbar__menu {
+    display: flex;
+  }
+
+  .hero__container {
+    flex-direction: column; // Stack content on smaller screens
+    text-align: center;
+
+    &--left,
+    &--right {
+      flex: none;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+// For desktops
+@media (min-width: $desktop) {
+  .hero__container {
+    gap: 40px;
+
+    h1 {
+      font-size: 48px;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+
